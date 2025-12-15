@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.spring.example.Student">
+        <constructor-arg name="name" value="Tina"/>
+        <constructor-arg name="age" value="21"/>
+    </bean>
+    
+	<bean id="student2" class="com.spring.example.Student">
+        <constructor-arg name="name" value="Daniel"/>
+        <constructor-arg name="age" value="22"/>
+    </bean>
+
+	<bean id="student3" class="com.spring.example.Student"
+		scope="prototype" init-method="init"> <!-- SCOPE: singleton|prototype|request|session| -->
+	    <constructor-arg name="name" value="Daniel"/>
+	    <constructor-arg name="age" value="22"/>
+	    <property name="active" value="true"/>
+	    <property name="address" ref="addressBean"/>
+	</bean>
+
+</beans>
